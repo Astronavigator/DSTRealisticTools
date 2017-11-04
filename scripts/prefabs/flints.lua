@@ -42,8 +42,8 @@ local function commonfn(num)
 	--inst.OnSave = OnSave
 	--inst.OnLoad = OnLoad
 	
-	--inst:AddComponent("stackable")
-	--inst.components.stackable.maxsize = TUNING.STACK_SIZE_MICRO --3
+	inst:AddComponent("stackable")
+	inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM --TUNING.STACK_SIZE_MICRO --3
 	
 	return inst
 end
@@ -197,8 +197,9 @@ local function fn19()
 	if not TheWorld.ismastersim then
 		return inst
 	end
-	inst:AddComponent("stackable")
-	inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM --TUNING.STACK_SIZE_HUGE --80
+
+	--inst:AddComponent("stackable")
+	--inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM --TUNING.STACK_SIZE_HUGE --80
 	
 	return inst
 end
