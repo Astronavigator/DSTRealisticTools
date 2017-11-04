@@ -198,7 +198,7 @@ local function fn19()
 		return inst
 	end
 	inst:AddComponent("stackable")
-	inst.components.stackable.maxsize = TUNING.STACK_SIZE_HUGE --80
+	inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM --TUNING.STACK_SIZE_HUGE --80
 	
 	return inst
 end
