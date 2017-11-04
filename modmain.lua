@@ -1,4 +1,4 @@
---[[
+﻿--[[
 PrefabFiles = { "flints" }
 if true then
 	return
@@ -332,7 +332,6 @@ AllRecipes["yellowstaff"].nounlock = false
 
 
 
---local recc = AddRecipe("blowdart_bunny", {Ingredient("cutreeds", 1), Ingredient("boneshard", 1)}, RECIPETABS.WAR, TECH.SCIENCE_ONE, nil, nil, nil, nil, "primal_hunter", "images/inventoryimages/blowdart_bunny.xml")
 
 --убираем золотые инструменты и прочие рецепты
 local disable_recipe_arr = {
@@ -356,11 +355,6 @@ for i,v in ipairs(disable_recipe_arr) do
 	end
 end
 local remove_drop_craft_ingredients = {"pighouse","rabbithouse"}
-for i,v in ipairs(remove_drop_craft_ingredients) do
-	AddPrefabPostInit(v,function(inst)
-		inst:AddComponent("norecipelootdrop") --jj: !!!! Requires Gollum mod!!!
-	end)
-end
 function MakeWord(a)
 	local res = ''
 	for i,v in ipairs(a) do
@@ -735,11 +729,6 @@ AddAssets (
 	Asset( "ATLAS", "minimap/globalicon.xml" ),	
 })
 
---[[AddAssets ( --вылетает с критом
-{
-	Asset( "IMAGE", "images/inventoryimages/blowdart_bunny.tex" ),
-	Asset( "ATLAS", "images/inventoryimages/blowdart_bunny.xml" ),	
-})--]]
 AddMinimapAtlas("minimap/globalicon.xml")
 
 
@@ -3147,7 +3136,7 @@ PENALTY_VALUE = 0.1 --процент здоровья, который отним
 
 _G.STRINGS.NAMES.PVPSYSTEM="PvP Rules"
 if SERVER_SIDE then
-	local c_announce = _G.c_announce
+	--local c_announce = _G.c_announce
 	local GetTime = _G.GetTime
 	local _pvp_players = {} --private array if players in pvp mode
 
@@ -3212,7 +3201,7 @@ if SERVER_SIDE then
 					--нашли прогульщика!
 					if (time_now - v.tm < 0.85) then
 						--print("Found coward!!! "..v.name)
-						c_announce((v.name=="" and "???" or v.name) .. " is the coward!")
+						--c_announce((v.name=="" and "???" or v.name) .. " is the coward!")
 					end
 					local j = w.components.justsave
 					if (time_now - v.tm > 90) and j and #AllPlayers > 0 then --время истекло! пора штрафовать!
@@ -3227,7 +3216,7 @@ if SERVER_SIDE then
 						end
 						--data.revives = data.revives + 1 --Когда он зайдет, ему будет начислен штраф.
 						data.tm = time_now --Время чисто символически показываем.
-						c_announce((v.name=="" and "???" or v.name) .. " is the coward and will be punished next time.")
+						--c_announce((v.name=="" and "???" or v.name) .. " is the coward and will be punished next time.")
 					end
 				end
 			end
@@ -3384,10 +3373,10 @@ if SERVER_SIDE then
 									inst.components.health:SetPenalty(pen.revives * PENALTY_VALUE)
 									inst.components.health:ForceUpdateHUD()
 									local max_hp_after = inst.components.health:GetMaxWithPenalty()
-									c_announce((inst.name=="" and "???" or inst.name).." was punished ("..
-										(max_hp_after - max_hp_before)
-										.." max hp)."
-									)
+									--c_announce((inst.name=="" and "???" or inst.name).." was punished ("..
+									--	(max_hp_after - max_hp_before)
+									--	.." max hp)."
+									--)
 								end
 							--else --нет квитанции, но есть судимость
 							--	inst.components.health.numrevives = pen.revives
@@ -3536,11 +3525,11 @@ if SERVER_SIDE then
 			eater.components.health:ForceUpdateHUD()
 			delta = eater.components.health:GetMaxWithPenalty() - before
 			print("Delta = "..delta)
-			_G.c_announce((eater.name=="" and "???" or eater.name).." ate someone's heart"..(delta>0 and (" (+"..delta.." max hp)")or
-				" ("..(w.state.isday and (w.state.time < 0.5 and "breakfast" or "lunch") or (w.state.isnight and "supper" or "dinner"))..")"
-			)..".")
+			--_G.c_announce((eater.name=="" and "???" or eater.name).." ate someone's heart"..(delta>0 and (" (+"..delta.." max hp)")or
+			--	" ("..(w.state.isday and (w.state.time < 0.5 and "breakfast" or "lunch") or (w.state.isnight and "supper" or "dinner"))..")"
+			--)..".")
 		else
-			_G.c_announce((eater.name=="" and "???" or eater.name).." ate someone's heart.")
+			--_G.c_announce((eater.name=="" and "???" or eater.name).." ate someone's heart.")
 		end
 	end
 	AddPrefabPostInit("reviver",function(inst)
@@ -4419,9 +4408,8 @@ STRINGS.CHARACTER_NAMES.effie = "Effie"
 STRINGS.CHARACTER_DESCRIPTIONS.effie = "*Умело убивает мелких животных дротиком."
 STRINGS.CHARACTER_QUOTES.effie = "\"Грррр!\""
 
-ch_nm("BLOWDART_BUNNY","Первобытный дротик",1,0,0,nil,"Первобытным дротиком")
-STRINGS.RECIPE_DESC.BLOWDART_BUNNY = "Многоразовый духовой дротик."
-gendesc.BLOWDART_BUNNY = "Многоразовый духовой дротик дикарки."
+
+
 
 
 --Adventure Items
