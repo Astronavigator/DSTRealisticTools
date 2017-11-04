@@ -61,7 +61,9 @@ do
 	end
 	t.AddBuildCondition = AddBuildCondition --Выносим в глобал для доступа извне.
 	t.RemoveRecipe = function(recname)
+		table.insert(_G.GAME_MODES.survival.invalid_recipes,recname)
 		table.insert(_G.GAME_MODES.wilderness.invalid_recipes,recname)
+		table.insert(_G.GAME_MODES.endless.invalid_recipes,recname)
 	end
 	
 	--Если необходимо делать открытие/закрытие только на клиенте,
@@ -763,6 +765,13 @@ do
 	AddRecipe("spear1",{Ingredient("f3",1),ing_staff0},RECIPETABS.TOOLS,TECH.NONE,nil,nil,nil,nil,nil,nil,"spear.tex")
 	AddRecipe("shovel1",{Ingredient("f6",1),ing_staff0},RECIPETABS.TOOLS,TECH.NONE,nil,nil,nil,nil,nil,atlas,"shovel2.tex")--]]
 	AddRecipe("pickaxe1",{Ingredient("f13",2),ing_staff0},RECIPETABS.TOOLS,TECH.NONE,nil,nil,nil,nil,nil,nil,"pickaxe.tex")
+
+
+	AddRecipe("goldenaxe", {Ingredient("f6",4), ing_staff0, Ingredient("goldnugget", 2)}, RECIPETABS.TOOLS,  TECH.SCIENCE_TWO)
+	AddRecipe("goldenpickaxe", {Ingredient("f13",2), ing_staff0, Ingredient("goldnugget", 2)}, RECIPETABS.TOOLS,  TECH.SCIENCE_TWO)
+	AddRecipe("goldenshovel", {Ingredient("f12",2), ing_staff0, Ingredient("goldnugget", 2)}, RECIPETABS.TOOLS,  TECH.SCIENCE_TWO)
+
+
 
 	local RemoveRecipe = mods.TopMod.RemoveRecipe
 
