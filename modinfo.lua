@@ -1,7 +1,7 @@
-name = "Santa Hat"
-description = "Personal use only."
+name = "Realistic tools"
+description = "Realistic tools"
 author = "star"
-version = "2.04"
+version = "1.0"
 forumthread = ""
 
 all_clients_require_mod = true
