@@ -1,7 +1,7 @@
 name = "Realistic tools"
-description = "Realistic tools"
-author = "star"
-version = "1.0"
+description = "Add realistic tools to your game! Crafting tools is much more fun now!"
+author = "Star, Astro"
+version = "1.0.1"
 forumthread = ""
 
 all_clients_require_mod = true
@@ -12,8 +12,8 @@ api_version = 10
 --dont_starve_compatible = true
 --reign_of_giants_compatible = true
 
-icon_atlas = "suit.xml"
-icon = "suit.tex"
+icon_atlas = "icon.xml"
+icon = "icon.tex"
 
 --после персонажей
 priority = -0.2 --перед русификатором (у русика 1) --378823280           --436106134
